@@ -4,8 +4,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// Class with my solutions for the two-sum problem here: https://leetcode.com/problems/two-sum/
 public class TwoSum
 {
+   static void run() {
+      int target = 6;
+      int[] nums = new int[]{3, 4, 5, 2, 6};
+
+      int[] indexes = TwoSum.twoSum(nums, target);
+      System.out.print(String.format("%d and %d sum to %d", nums[indexes[0]], nums[indexes[1]], target));
+
+      int[] indexesRevised = TwoSum.twoSumRevised(nums, target);
+      System.out.print(String.format("\n%d and %d sum to %d", nums[indexesRevised[0]], nums[indexesRevised[1]], target));
+   }
+
+   // My initial approach, including comments I used to think out loud
    static int[] twoSum(int[] nums, int target) {
       Map<Integer, List<Integer>> indexMap = new HashMap<>();
 
@@ -47,7 +60,7 @@ public class TwoSum
       throw new InvalidParameterException("No two-sum answer found");
    }
 
-
+   // Improved solution based on the solutions provided by LeetCode
    static int[] twoSumRevised(int[] nums, int target) {
       Map<Integer, Integer> indexMap = new HashMap<>();
 
